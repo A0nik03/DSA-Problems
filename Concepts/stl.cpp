@@ -2,17 +2,18 @@
 #include <utility> //Pairs
 #include <vector> //Vectors
 #include <list> //List
+#include <deque> //Deque
 using namespace std;
 
-// //Pairs
-// void explainPair(){
-//     pair<int,int> p1 = {1,3};
-//     cout<<p1.first<<" "<<p1.second<<endl;
-//     pair<int,pair<int,int>> p2 = {1,{3,4}};
-//     cout<<p2.first<<" "<<p2.second.second<<" "<<p2.second.first<<endl;
-//     pair<int,int> arr[] = {{1,2},{2,5},{5,1}};
-//     cout<<arr[1].second<<endl;
-// }
+//Pairs
+void explainPair(){
+    pair<int,int> p1 = {1,3};
+    cout<<p1.first<<" "<<p1.second<<endl;
+    pair<int,pair<int,int>> p2 = {1,{3,4}};
+    cout<<p2.first<<" "<<p2.second.second<<" "<<p2.second.first<<endl;
+    pair<int,int> arr[] = {{1,2},{2,5},{5,1}};
+    cout<<arr[1].second<<endl;
+}
 
 // //Vectors
 // void explainVector(){
@@ -42,10 +43,10 @@ using namespace std;
 //     cout<<v[0]<<" "<<v.at(0)<<endl;
 //     cout<<v.back()<<" "<<endl;
 
-//     for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
-//     {
-//         cout<<*(it)<<" "<<endl;
-//     }
+//     // for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
+//     // {
+//     //     cout<<*(it)<<" "<<endl;
+//     // }
 
 //     for (auto it = v.begin();it != v.end(); it++)
 //     {
@@ -96,8 +97,41 @@ void explainList(){
     }
 }
 
+// Deque
+void explainDeque(){
+    deque<int> dq;
+    dq.push_back(1);
+    dq.push_back(2);
+    dq.emplace_back(3);
+    for(auto it:dq){
+        cout<<it<<" ";
+    }
+    cout<<endl;
+    dq.push_front(4);
+    dq.push_front(5);
+    dq.emplace_front(6);
+    for(auto it:dq){
+        cout<<it<<" ";
+    }
+    cout<<endl;
+
+    dq.pop_back();
+    dq.pop_front();
+    for(auto it:dq){
+        cout<<it<<" ";
+    }
+    cout<<endl;
+
+    dq.back();
+    dq.front();
+    for(auto it:dq){
+        cout<<it<<" ";
+    }
+}
+
 int main(){
     // explainPair();
     // explainVector();
-    explainList();
+    // explainList();
+    explainDeque();
 }
