@@ -11,6 +11,7 @@ int bruteMeth(vector<int> arr,int n){
 // Optimal Approach
 int optimalMeth(vector<int> arr,int n){
    int largest = arr[0];
+   int slargest = -1;
    for(int i = 1;i<n;i++){
        if(arr[i] > largest){
            largest = arr[i];
