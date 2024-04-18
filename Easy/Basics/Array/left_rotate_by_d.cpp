@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 // Brute Approach
@@ -46,7 +47,7 @@ vector<int> betterMeth(vector<int> arr,int k){
 
 void optimalMeth(vector<int>& arr,int k){
     int n = arr.size();
-    reverse(arr.begin(),arr.end());
+    reverse(arr.begin(),arr.begin()+k);
     reverse(arr.begin()+k,arr.end());
     reverse(arr.begin(),arr.end());
 }
