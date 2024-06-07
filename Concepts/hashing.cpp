@@ -137,7 +137,7 @@ int main() {
 }
 
 // How to hash large numbers like 10^9 or higher:
-// Until now, we have learned the method of number hashing but using this method we cannot hash large numbers like 109 or higher. We can solve this problem using the STL map and unordered_map in C++ or the HashMap in Java collection. Now, we are going to discuss these concepts in detail and most of the concepts are the same in map/unordered_map(in C++) and HashMap(in Java).
+// Until now, we have learned the method of number hashing but using this method we cannot hash large numbers like 10e9 or higher. We can solve this problem using the STL map and unordered_map in C++ or the HashMap in Java collection. Now, we are going to discuss these concepts in detail and most of the concepts are the same in map/unordered_map(in C++) and HashMap(in Java).
 
 // map and unordered_map in C++ / HashMap in Java
 
