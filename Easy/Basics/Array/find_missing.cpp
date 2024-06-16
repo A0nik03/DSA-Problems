@@ -54,6 +54,23 @@ private:
         return xor1 ^ xor2;
     }
 
+    int optimal_Three_Binary(vector<int>& nums) {
+        int n = nums.size();
+        sort(nums.begin(),nums.end());
+        int left = 0,right = n;
+        int mid = left + (right - left)/2;
+        while(left < right){
+            if(nums[mid] > mid){
+                right = mid;
+            }
+            else{
+                left = mid + 1;
+            }
+            mid = left + (right - left)/2;
+        }
+        return left;
+    }
+
 
 public:
     int missingNumber(vector<int>& nums) {
