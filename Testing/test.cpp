@@ -1,26 +1,50 @@
 #include <bits/stdc++.h>
 using namespace std;
+int peek(vector<int> arr)
+{
+    int n = arr.size();
+    if (n == 0)
+        return -1;
+    cout << "Start: " << endl;
+    if (n == 1)
+        return 0;
+    cout << "Start: " << endl;
+    if (arr[0] > arr[1])
+        return 0;
+            cout << "Start: " << endl;
+    if (arr[n - 1] < arr[n - 2])
+        return n - 2;
 
-int brute(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
-        int len = 0,maxi = 0;
 
-        for(int i = 1 ; i < nums.size() ; i++){
-            if(nums[i - 1] + 1 == nums[i]){
-                cout<<nums[i - 1] + 1 << " == " <<nums[i]<<endl;
-                len++;
-                
-                cout<<"Maxi In:"<<maxi<<endl;
-                cout<<"Len: "<<len<<endl;
-            }else{
-                len = 0;
-            }
+    cout << "bjb;" << endl;
+    int low = 1;
+    int high = n - 2;
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] > arr[mid + 1] && arr[mid] > arr[mid - 1])
+        {
+            cout << mid << endl;
+            return mid;
         }
-        cout<<"Maxi: "<<maxi<<endl;
-        return maxi + 1;
+        else if (arr[mid] < arr[mid + 1])
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+        cout << "out: " << mid << endl;
     }
+    return -1;
+}
 
-int main(){
-    vector<int> arr = {0,3,7,2,5,8,4,6,0,1};
-    return brute(arr);
+int main()
+{
+    vector<int> arr = {1, 2, 3, 4, 13, 5, 6, 7, 8};
+    cout << "Size: " << arr.size() << endl;
+    int ans = peek(arr);
+
+    cout << ans << endl;
 }
