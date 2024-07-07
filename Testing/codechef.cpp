@@ -1,48 +1,71 @@
 //{ Driver Code Starts
-// Initial template for C++
-
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-
 // } Driver Code Ends
-// User function template for C++
-
-
-class Solution {
-  public:
-    string longestCommonPrefix (string arr[], int N){
-        sort(arr, arr+N);
-        string str1 = arr[0];
-        string str2 = arr[N-1];
-        string ans ="";
-        for(int i = 0; i < str2.length(); i++){
-            if(str1[i] != str2[i])
-             break;
-             
-            ans += str1[i];
-        }
-       if(ans.empty())
-        return "-1";
+class Solution{
+    private:
+    int findMaxNeg(long long int *a, int n){
         
-        return ans;
+        int ind = 0;
+        for(int i = 0; i < n; i++){
+            if(a[i] >= 0){
+                ind = i - 1;
+                return ind;
+            }
+        }
+        return n - 1;
+    }
+    
+    public:
+    long long int maximizeSum(long long int a[], int n, int k)
+    {
+        sort(a,a+n);
+        
+        
+        long long int sum = 0;
+        
+        int ind = findMaxNeg(a,n);
+        cout<<"ind: "<<ind<<endl;
+
+        for(int i = 0; i < n; i++){
+            cout<<a[i]<<" ";
+        }
+        cout<<endl;
+        
+        for(int i = ind; i >= 0; i--){
+           if(k >= 0){
+               a[i] = a[i] * (-1);
+               cout<<"a[i]: "<<a[i]<<" ";
+               k--;
+           }
+        }
+        cout<<endl;
+        
+        for(int i = 0; i < n; i++){
+            cout<<"sum: "<<sum<<" ";
+            sum+=a[i];
+        }
+        return sum;
     }
 };
 
 //{ Driver Code Starts.
-int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        int n;
-        cin >> n;
-        string arr[n];
-        for (int i = 0; i < n; ++i)
-            cin >> arr[i];
-
-        Solution ob;
-        cout << ob.longestCommonPrefix(arr, n) << endl;
-    }
+int main()
+ {
+     int t;
+     cin>>t;
+     while(t--)
+     {
+         int n, k;
+         cin>>n>>k;
+         long long int a[n+5];
+         for(int i=0;i<n;i++)
+         cin>>a[i];
+         Solution ob;
+         cout<<ob.maximizeSum(a, n, k)<<endl;
+     }
+	
+	return 0;
 }
-
 // } Driver Code Ends
