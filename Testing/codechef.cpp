@@ -1,53 +1,61 @@
 //{ Driver Code Starts
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+
 using namespace std;
 
-
 // } Driver Code Ends
-// Function to return minimum number of jumps to end of array
+class Solution
+{
 
-class Solution{
-  public:
-    int minJumps(int arr[], int n){
-        int i = 0;
-        int cnt = 0;
-         int jumpDist = 0;
-        while(jumpDist >= n){
-            if(arr[i] == 0){
-                return -1;
+    // Function to find the trapped water between the blocks.
+public:
+    long long trappingWater(int arr[], int n)
+    {
+        int largest = 0, secondLargest = -1;
+        for (int i = 1; i < n; i++)
+        {
+            if (arr[i] > arr[largest])
+            {
+                secondLargest = largest;
+                largest = i;
             }
-            
-            cnt++;
-            cout<<"i:"<<i<<endl;
-            cout<<"count "<<cnt<<endl;
-            cout<<"Jump:"<<jumpDist<<endl;
-            
-            jumpDist = i + arr[i];
-            i += arr[i];
-            cout<<"Changed i:"<<i<<endl;
+            else if (arr[i] < arr[largest] && (secondLargest == -1 || arr[i] > arr[secondLargest]))
+            {
+                secondLargest = i;
+            }
         }
-        return cnt;
+        return largest;
     }
 };
-
 
 //{ Driver Code Starts.
 
 int main()
 {
+
     int t;
-    cin>>t;
-    while(t--)
+    // testcases
+    cin >> t;
+
+    while (t--)
     {
-        int n,i,j;
-        cin>>n;
-        int arr[n];
-        for(int i=0; i<n; i++)
-            cin>>arr[i];
+        int n;
+
+        // size of array
+        cin >> n;
+
+        int a[n];
+
+        // adding elements to the array
+        for (int i = 0; i < n; i++)
+        {
+            cin >> a[i];
+        }
         Solution obj;
-        cout<<obj.minJumps(arr, n)<<endl;
+        // calling trappingWater() function
+        cout << obj.trappingWater(a, n) << endl;
     }
+
     return 0;
 }
-
 // } Driver Code Ends
