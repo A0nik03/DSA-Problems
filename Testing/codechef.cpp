@@ -1,61 +1,62 @@
 //{ Driver Code Starts
-#include <bits/stdc++.h>
+//Initial template for C++
 
+#include <bits/stdc++.h>
 using namespace std;
 
+
 // } Driver Code Ends
+//User function template for C++
+
 class Solution
 {
-
-    // Function to find the trapped water between the blocks.
-public:
-    long long trappingWater(int arr[], int n)
+  public:
+    //Function to find maximum of each subarray of size k.
+    vector <int> max_of_subarrays(int *arr, int n, int k)
     {
-        int largest = 0, secondLargest = -1;
-        for (int i = 1; i < n; i++)
-        {
-            if (arr[i] > arr[largest])
-            {
-                secondLargest = largest;
-                largest = i;
+        int maxi = INT_MIN;
+        vector<int> maximum;
+        int sum = 0;
+        int cnt = 0;
+        for(int i = 0; i < n ; i++){
+            cnt++;
+            if(arr[i] > maxi){
+                maxi = arr[i];
             }
-            else if (arr[i] < arr[largest] && (secondLargest == -1 || arr[i] > arr[secondLargest]))
-            {
-                secondLargest = i;
+            
+            if(cnt == k){
+                cout<<maxi<<endl;
+                maximum.push_back(maxi);
+                cnt--;
             }
         }
-        return largest;
+        return maximum;
     }
 };
 
 //{ Driver Code Starts.
 
-int main()
-{
-
-    int t;
-    // testcases
-    cin >> t;
-
-    while (t--)
-    {
-        int n;
-
-        // size of array
-        cin >> n;
-
-        int a[n];
-
-        // adding elements to the array
-        for (int i = 0; i < n; i++)
-        {
-            cin >> a[i];
-        }
-        Solution obj;
-        // calling trappingWater() function
-        cout << obj.trappingWater(a, n) << endl;
-    }
-
-    return 0;
+int main() {
+	
+	int t;
+	cin >> t;
+	
+	while(t--){
+	    
+	    int n, k;
+	    cin >> n >> k;
+	    
+	    int arr[n];
+	    for(int i = 0;i<n;i++) 
+	        cin >> arr[i];
+	    Solution ob;
+	    vector <int> res = ob.max_of_subarrays(arr, n, k);
+	    for (int i = 0; i < res.size (); i++) 
+	        cout << res[i] << " ";
+	    cout << endl;
+	    
+	}
+	
+	return 0;
 }
 // } Driver Code Ends
