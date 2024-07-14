@@ -10,7 +10,10 @@ For every node, data value must be equal to the sum of data values in left and r
 //Initial Template for C++
 
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <sstream>
 using namespace std;
 
 

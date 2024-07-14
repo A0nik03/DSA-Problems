@@ -10,7 +10,9 @@ Each traversal is represented with an integer: preorder - 1, inorder - 2, postor
 //{ Driver Code Starts
 //Initial Template for C++
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <stack>
 using namespace std;
 
 

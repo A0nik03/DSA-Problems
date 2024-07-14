@@ -19,7 +19,8 @@ Design an algorithm that runs in less than O(n) time complexity.
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 

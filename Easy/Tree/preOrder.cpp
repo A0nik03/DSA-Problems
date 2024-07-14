@@ -2,7 +2,9 @@
 
 // Given the root of a binary tree, return the preorder traversal of its nodes' values.
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <stack>
 using namespace std;
 
 
