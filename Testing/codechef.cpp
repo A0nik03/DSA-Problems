@@ -1,62 +1,34 @@
-//{ Driver Code Starts
-//Initial template for C++
+#include <iostream>
+#include <vector>
+#include <string>
 
-#include <bits/stdc++.h>
-using namespace std;
-
-
-// } Driver Code Ends
-//User function template for C++
-
-class Solution
-{
-  public:
-    //Function to find maximum of each subarray of size k.
-    vector <int> max_of_subarrays(int *arr, int n, int k)
-    {
-        int maxi = INT_MIN;
-        vector<int> maximum;
-        int sum = 0;
-        int cnt = 0;
-        for(int i = 0; i < n ; i++){
-            cnt++;
-            if(arr[i] > maxi){
-                maxi = arr[i];
-            }
-            
-            if(cnt == k){
-                cout<<maxi<<endl;
-                maximum.push_back(maxi);
-                cnt--;
-            }
-        }
-        return maximum;
-    }
-};
-
-//{ Driver Code Starts.
+int solution(std::vector<std::string>& A); // Declaration of the solution function
 
 int main() {
-	
-	int t;
-	cin >> t;
-	
-	while(t--){
-	    
-	    int n, k;
-	    cin >> n >> k;
-	    
-	    int arr[n];
-	    for(int i = 0;i<n;i++) 
-	        cin >> arr[i];
-	    Solution ob;
-	    vector <int> res = ob.max_of_subarrays(arr, n, k);
-	    for (int i = 0; i < res.size (); i++) 
-	        cout << res[i] << " ";
-	    cout << endl;
-	    
-	}
-	
-	return 0;
+    // Example input
+    std::vector<std::string> tiles = {"RR", "GR", "RG", "GR","GR","RR"};
+    
+    // Call the solution function
+    int result = solution(tiles);
+    
+    // Print the result
+    std::cout << "The length of the longest possible sequence is: " << result << std::endl;
+    
+    return 0;
 }
-// } Driver Code Ends
+
+// Implementation of the solution function
+int solution(std::vector<std::string>& A) {
+    int rr = 0, gg = 0, rg = 0, gr = 0;
+    
+    for (const auto& tile : A) {
+        if (tile == "RR") rr++;
+        else if (tile == "GG") gg++;
+        else if (tile == "RG") rg++;
+        else if (tile == "GR") gr++;
+    }
+    
+    return rr + gg + std::abs(rg - gr);
+}
+
+
