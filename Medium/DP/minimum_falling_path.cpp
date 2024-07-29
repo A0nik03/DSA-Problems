@@ -27,7 +27,7 @@ public:
         int u = matrix[i][j] + f_memo(matrix,i - 1, j,dp);
         int ul = matrix[i][j] + f_memo(matrix,i - 1, j - 1,dp);
         int ur = matrix[i][j] + f_memo(matrix,i - 1, j + 1,dp);
-        return dp[i][jsni] = min(u,min(ul,ur));
+        return dp[i][j] = min(u,min(ul,ur));
     }
 
     int f_tabu(vector<vector<int>>& matrix){
